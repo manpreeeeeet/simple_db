@@ -9,7 +9,7 @@ class Page(private val buffer: ByteBuffer) {
     constructor(blockSize: Int) : this(ByteBuffer.allocateDirect(blockSize))
 
     companion object {
-        val CHARSET: Charset = StandardCharsets.US_ASCII
+        val CHARSET: Charset = StandardCharsets.UTF_8
 
         fun maxLength(strLength: Int): Int {
             val bytesPerChar = CHARSET.newEncoder().maxBytesPerChar()
