@@ -10,7 +10,11 @@ repositories {
 }
 
 dependencies {
+
+    implementation("com.google.inject:guice:7.0.0")
+
     testImplementation(kotlin("test"))
+    testImplementation("io.mockk:mockk:1.13.8")
 }
 
 tasks.test {
