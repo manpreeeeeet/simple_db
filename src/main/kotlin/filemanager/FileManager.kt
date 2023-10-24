@@ -4,7 +4,7 @@ import com.google.inject.Inject
 import java.io.File
 import java.io.RandomAccessFile
 
-class FileManager(private val dbDirectory: File, private val blockSize: Int) {
+class FileManager(private val dbDirectory: File, val blockSize: Int) {
 
     @Inject
     lateinit var fileManagerLogic: IFileManagerLogic
@@ -37,6 +37,10 @@ class FileManager(private val dbDirectory: File, private val blockSize: Int) {
 
     fun append(fileName: String): BlockId {
         return fileManagerLogic.append(getFile(fileName), fileName)
+    }
+
+    fun length(fileName: String): Int {
+        return FileManagerLogic.length(getFile(fileName), fileName)
     }
 
     private fun getFile(fileName: String): RandomAccessFile {

@@ -32,7 +32,7 @@ class FileManagerLogic : IFileManagerLogic {
 
     override fun append(file: RandomAccessFile, fileName: String): BlockId {
         synchronized(this) {
-            
+
             val length = length(file, fileName)
             val block = BlockId(fileName, length)
 
@@ -48,11 +48,13 @@ class FileManagerLogic : IFileManagerLogic {
         }
     }
 
-    fun length(file: RandomAccessFile, fileName: String): Int {
-        try {
-            return (file.length() / BLOCK_SIZE).toInt()
-        } catch (e: IOException) {
-            throw RuntimeException("Cannot access file $fileName")
+    companion object {
+        fun length(file: RandomAccessFile, fileName: String): Int {
+            try {
+                return (file.length() / BLOCK_SIZE).toInt()
+            } catch (e: IOException) {
+                throw RuntimeException("Cannot access file $fileName")
+            }
         }
     }
 }

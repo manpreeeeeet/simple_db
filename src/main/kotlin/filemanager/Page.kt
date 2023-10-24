@@ -25,7 +25,7 @@ class Page(private val buffer: ByteBuffer) {
         buffer.putInt(offset, n)
     }
 
-    private fun getBytes(offset: Int): ByteArray {
+    fun getBytes(offset: Int): ByteArray {
         buffer.position(offset)
         val length = buffer.getInt()
         return ByteArray(length).also {
@@ -33,7 +33,7 @@ class Page(private val buffer: ByteBuffer) {
         }
     }
 
-    private fun setBytes(offset: Int, b: ByteArray) {
+    fun setBytes(offset: Int, b: ByteArray) {
         buffer.position(offset)
         buffer.putInt(b.size)
         buffer.put(b)
