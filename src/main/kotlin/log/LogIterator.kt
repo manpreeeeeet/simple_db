@@ -33,5 +33,4 @@ class LogIterator(val fileManager: FileManager, block: BlockId) : Iterator<ByteA
         currentBoundary = currentLogPage.getInt(0)
         currentPosition = currentBoundary
     }
-
 }

@@ -13,17 +13,14 @@ class FileManagerLogic : IFileManagerLogic {
             } catch (e: IOException) {
                 throw RuntimeException("Cannot read block $blockId")
             }
-
         }
     }
 
     override fun write(file: RandomAccessFile, blockId: BlockId, page: Page) {
         synchronized(this) {
             try {
-
                 file.seek((blockId.blockNum * BLOCK_SIZE).toLong())
                 file.channel.write(page.contents())
-
             } catch (e: IOException) {
                 throw RuntimeException("Cannot write blocK $blockId")
             }
@@ -32,7 +29,6 @@ class FileManagerLogic : IFileManagerLogic {
 
     override fun append(file: RandomAccessFile, fileName: String): BlockId {
         synchronized(this) {
-
             val length = length(file, fileName)
             val block = BlockId(fileName, length)
 

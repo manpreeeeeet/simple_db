@@ -15,7 +15,6 @@ class MainGuice : AbstractModule() {
 fun main() {
     val injector = Guice.createInjector(MainGuice())
 
-
     val file = File("abc")
 
     val fileManager = FileManager(file, 4096)
@@ -30,8 +29,5 @@ fun main() {
 
     val page1 = Page(4096)
 
-
     fileManager.read(block, page)
-
-
 }

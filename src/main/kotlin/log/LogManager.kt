@@ -21,7 +21,6 @@ class LogManager(private val fileManager: FileManager, private val logFile: Stri
             fileManager.read(block, logPage)
             block
         }
-
     }
 
     fun getLogIterator(): LogIterator {
@@ -67,6 +66,4 @@ class LogManager(private val fileManager: FileManager, private val logFile: Stri
         fileManager.write(currentBlock, logPage)
         lastSavedLSN = latestLSN
     }
-
-
 }

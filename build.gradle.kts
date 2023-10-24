@@ -1,5 +1,7 @@
 plugins {
     kotlin("jvm") version "1.9.0"
+    id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
+    id("org.jlleitschuh.gradle.ktlint-idea") version "11.6.1"
 }
 
 group = "org.example"
@@ -22,5 +24,5 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(18)
 }

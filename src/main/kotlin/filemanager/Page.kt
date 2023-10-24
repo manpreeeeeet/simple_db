@@ -51,6 +51,4 @@ class Page(private val buffer: ByteBuffer) {
         buffer.position(0)
         return buffer
     }
-
-
 }

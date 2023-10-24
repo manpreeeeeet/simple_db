@@ -15,7 +15,6 @@ class LogIterator {
 
     lateinit var fm: FileManager
 
-
     @BeforeEach
     fun setup() {
         val injector = Guice.createInjector(MainGuice())
@@ -31,7 +30,6 @@ class LogIterator {
 
     @Test
     fun `records that are multi page can be added`() {
-
         val lm = LogManager(fm, logFile)
         val logRecords = List(4096) {
             "hi i am $it number"
@@ -46,8 +44,5 @@ class LogIterator {
         }
 
         assertEquals(logRecords.reversed(), recordsFound)
-
     }
-
-
 }

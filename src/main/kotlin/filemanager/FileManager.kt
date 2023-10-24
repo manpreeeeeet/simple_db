@@ -12,7 +12,6 @@ class FileManager(private val dbDirectory: File, val blockSize: Int) {
     private val openFiles = mutableMapOf<String, RandomAccessFile>()
     val isNew: Boolean = !dbDirectory.exists()
 
-
     init {
 
         if (isNew) {
@@ -29,7 +28,6 @@ class FileManager(private val dbDirectory: File, val blockSize: Int) {
     fun read(blockId: BlockId, page: Page) {
         fileManagerLogic.read(getFile(blockId.filename), blockId, page)
     }
-
 
     fun write(blockId: BlockId, page: Page) {
         fileManagerLogic.write(getFile(blockId.filename), blockId, page)
@@ -54,25 +52,4 @@ class FileManager(private val dbDirectory: File, val blockSize: Int) {
 
         return file
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
