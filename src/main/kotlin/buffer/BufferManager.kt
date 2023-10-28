@@ -11,7 +11,6 @@ class BufferManager(val fileManager: FileManager, val logManager: LogManager, va
     }
 
     fun unpin(buffer: Buffer) {
-
     }
 
     fun available(): Int {
@@ -19,6 +18,5 @@ class BufferManager(val fileManager: FileManager, val logManager: LogManager, va
     }
 
     fun flushAll(transactionNumber: Int) {
-
     }
 }

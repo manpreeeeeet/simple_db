@@ -49,5 +49,4 @@ class Buffer(private val fileManager: FileManager, private val logManager: LogMa
             lsn--
         }
     }
-
 }
