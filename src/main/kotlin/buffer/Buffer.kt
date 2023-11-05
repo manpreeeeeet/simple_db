@@ -21,7 +21,8 @@ class Buffer(private val fileManager: FileManager, private val logManager: LogMa
 
     private var lsn = -1
 
-    fun isPinned() = pins > 0
+    val isPinned
+        get() = pins > 0
 
     fun setModified(transactionNumber: Int, lsn: Int) {
         this.transactionNumber = transactionNumber
@@ -41,7 +42,7 @@ class Buffer(private val fileManager: FileManager, private val logManager: LogMa
         pins = 0
     }
 
-    private fun flush() {
+    fun flush() {
         if (transactionNumber >= 0) {
             logManager.flush(lsn)
             fileManager.write(block!!, contents)
@@ -49,4 +50,14 @@ class Buffer(private val fileManager: FileManager, private val logManager: LogMa
             lsn--
         }
     }
+
+    fun pin() {
+        pins++
+    }
+
+    fun unpin() {
+        pins--
+    }
+
+    fun getBlock() = block
 }

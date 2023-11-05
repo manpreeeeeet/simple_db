@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 import java.io.File
 import kotlin.test.assertEquals
 
-class LogIterator {
+class LogIteratorTest {
 
     val testDirectory = "test_dir"
     val logFile = "temp_log_file"
@@ -29,7 +29,7 @@ class LogIterator {
     }
 
     @Test
-    fun `records that are multi page can be added`() {
+    fun `records that are multi page can be iterated`() {
         val lm = LogManager(fm, logFile)
         val logRecords = List(4096) {
             "hi i am $it number"
